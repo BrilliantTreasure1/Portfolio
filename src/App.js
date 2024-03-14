@@ -1,43 +1,40 @@
-import { ThemeProvider,createTheme } from "@mui/material/styles"
-import rtlPlugin from "stylis-plugin-rtl"
-import { CacheProvider } from "@emotion/react"
-import { HelmetProvider,Helmet } from "react-helmet-async"
-import createcache from "@emotion/cache"
-import { prefixer } from "stylis"
+import { useState } from 'react';
 
+import MainLayouts from './components/layouts/mainlayouts';
 import './App.css';
-
-
-//NOTE create custom theme
-const theme = createTheme({
-  direction : rtl,
-  typography : {
-    fontFamily : "vazir"
-  }
-})
-
-//NOTE create rtl cache
-const cacheRTL = createcache({
-  key :"muirtl"
-  ,stylisPlugins: [prefixer,rtlPlugin]
-})
+import Sidebar from './components/UI/sidebar';
+import ContentContainer from './components/UI/contentContainer';
+import TabPanel from './components/Tabs/TabPanel';
+import { Typography } from '@mui/material';
 
 function App() {
+  const[value ,setvalue] = useState(0);
+
+  const handleChange = (event, newValue ) => {
+    setvalue(newValue);
+  }
+
   return (
-    <CacheProvider value={cacheRTL}>
-      <ThemeProvider theme={theme}>
-        <HelmetProvider>
-          <Helmet>
-            <title>BrilliantTreasur</title>
-          </Helmet>
-        </HelmetProvider>
-          <div className="App">
-       
-          </div>
-  
-    </ThemeProvider>
-    </CacheProvider>
-    
+    <MainLayouts>
+        <Sidebar value={value} handleChange={handleChange} />    
+        <ContentContainer>
+          <TabPanel value={value} index={0}>
+              <Typography variant='h5'>1</Typography>
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+              <Typography variant='h5'>2</Typography>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+              <Typography variant='h5'>3</Typography>
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+              <Typography variant='h5'>4</Typography>
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+              <Typography variant='h5'>5</Typography>
+          </TabPanel>
+        </ContentContainer>
+    </MainLayouts>
 );
 }
 
