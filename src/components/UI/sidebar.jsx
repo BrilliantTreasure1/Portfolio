@@ -1,44 +1,31 @@
-import { Drawer,Fab ,Box } from "@mui/material"
-import { grey,red } from "@mui/material/colors"
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
-import { MenuRounded   } from "@mui/icons-material"
+import { useState } from "react"
+import { Drawer} from "@mui/material"
+import { grey } from "@mui/material/colors"
 
-
-
+    import SidebarContainer from "../Sidebar/SidebarContainer"
     import DrawerContent from "./Drawercontent"
-    import { useState } from "react"
+    import FloatActionButton from "../Sidebar/FloatActionButton"
+    
 
 const Sidebar = ({value , handleChange}) => {
 
     const [drawerOpen , setDrawerOpen] = useState(false);
 
+    const handleDrawer = () => {
+        setDrawerOpen(!drawerOpen)
+    }
+
  
 
     return (
-        <Grid2
-        xs={0}
-        sm={0}
-        md={3}
-        lg={2} 
-        xl={2} 
-        sx={{backgroundColor : grey[900] }}
-        > 
-        <Box
-        sx={{
-            display:{
-                xs: "block",
-                sm: "block",
-                md: "none",
-                lg: "none",
-                xl: "none"
-            }
-        }}>
-            <Fab aria-label="sidebar" size="small" sx={{m :2 , backgroundColor: grey[800]}} onClick={() => setDrawerOpen(true)}>
-                <MenuRounded/>
-            </Fab>
-        </Box>
+        
+       <SidebarContainer>
+        {/*SidebarContainer ^^^=>> Grid */}
 
-        <DrawerContent value={value} handleChange={handleChange} />
+       {/* FAB */}
+       <FloatActionButton handleDrawer={handleDrawer} />
+
+        <DrawerContent value={value} handleChange={handleChange}/>
 
             <Drawer 
             open={drawerOpen}
@@ -51,11 +38,11 @@ const Sidebar = ({value , handleChange}) => {
                 },
                 
             }}>
-           <DrawerContent value={value} handleChange={handleChange} setDrawerOpen={setDrawerOpen} />
+           <DrawerContent value={value} handleChange={handleChange} handleDrawer={handleDrawer} />
            </Drawer>
         
-        
-        </Grid2>
+       </SidebarContainer>
+       
     )
 }
 
