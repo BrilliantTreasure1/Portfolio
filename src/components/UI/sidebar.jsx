@@ -18,12 +18,14 @@ const Sidebar = ({value , handleChange}) => {
  
 
     return (
-        
+        <>
+         {/* FAB */}
+        <FloatActionButton handleDrawer={handleDrawer} />
+       
        <SidebarContainer>
         {/*SidebarContainer ^^^=>> Grid */}
 
-       {/* FAB */}
-       <FloatActionButton handleDrawer={handleDrawer} />
+      
 
         <DrawerContent value={value} handleChange={handleChange}/>
 
@@ -42,7 +44,7 @@ const Sidebar = ({value , handleChange}) => {
            </Drawer>
         
        </SidebarContainer>
-       
+       </>
     )
 }
 
