@@ -1,4 +1,4 @@
-import { LinearProgress } from '@mui/material';
+import { Card } from '@mui/material';
 import { devSkills } from '../../constants/Skills';
 
 import Skill from '../Skill';
@@ -48,7 +48,13 @@ const About = () => {
 
     const {htmlSkill,cssSkill,reactSkill,gitSkill,jsSkill,nodeSkill} = devSkills
     return(
-        <div>
+        <Card 
+            sx={{
+                height: "100vh",
+                backgroundColor:"whitesmoke",
+                overflowY: "scroll"
+            }}
+        >
             <Skill
             name={htmlSkill.name}
             value={html}
@@ -85,7 +91,7 @@ const About = () => {
             icon={gitSkill.icon}
             color={gitSkill.color}
             />
-        </div>
+        </Card>
     )
 }
 
