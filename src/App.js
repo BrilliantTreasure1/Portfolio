@@ -8,6 +8,7 @@ import PagesContainer from './components/UI/pagesContainer';
 import Page from './components/Tabs/Page';
 import { Typography } from '@mui/material';
 import Home from './components/pages/Home';
+import About from './components/pages/About';
 
 function App() {
   const[value ,setvalue] = useState(0);
@@ -26,7 +27,7 @@ function App() {
               <Home/>
           </Page>
           <Page value={value} index={1}>
-              <Typography variant='h5'>2</Typography>
+              <About/>
           </Page>
           <Page value={value} index={2}>
               <Typography variant='h5'>3</Typography>
