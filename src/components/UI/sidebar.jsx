@@ -7,7 +7,7 @@ import { grey } from "@mui/material/colors"
     import FloatActionButton from "../Sidebar/FloatActionButton"
     
 
-const Sidebar = ({value , handleChange}) => {
+const Sidebar = ({value , handleChange , handleThemeChange}) => {
 
     const [drawerOpen , setDrawerOpen] = useState(false);
 
@@ -27,7 +27,7 @@ const Sidebar = ({value , handleChange}) => {
 
       
 
-        <DrawerContent value={value} handleChange={handleChange}/>
+        <DrawerContent value={value} handleChange={handleChange} handleThemeChange={ handleThemeChange } />
 
             <Drawer 
             open={drawerOpen}

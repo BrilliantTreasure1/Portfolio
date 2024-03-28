@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 import MainLayouts from './components/layouts/mainlayouts';
@@ -17,11 +17,20 @@ function App() {
     setvalue(newValue);
   }
 
+  const [mode, setmode] = useState()
 
+  useEffect(()  => {
+    setmode("light")
+  },[])
+
+  const handleThemeChange = () => {
+    setmode(prevMode => prevMode ==="light" ? "dark" : "light")
+    console.log(mode);
+  } 
 
   return (
-    <MainLayouts>
-        <Sidebar value={value} handleChange={handleChange} />    
+    <MainLayouts mode={mode}>
+        <Sidebar value={value} handleChange={handleChange} handleThemeChange={handleThemeChange}/>    
         <PagesContainer>
           <Page value={value} index={0}>
               <Home/>

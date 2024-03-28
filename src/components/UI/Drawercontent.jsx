@@ -6,7 +6,7 @@ import SidebarFooter from "../Sidebar/SidebarFooter"
 import SidebarTab from "../Sidebar/SidebarTab"
 
 
-const DrawerContent = ({value , handleChange  , handleDrawer}) =>{ 
+const DrawerContent = ({value , handleChange  , handleDrawer, handleThemeChange}) =>{ 
 
  
 
@@ -20,7 +20,7 @@ const DrawerContent = ({value , handleChange  , handleDrawer}) =>{
             textcolor : "whitesmoke"
         }}>
             {/* SidebarHeader */}
-            <SidebarHeader />  
+            <SidebarHeader handleThemeChange={handleThemeChange} />  
 
 
                 <Divider variant="middle" sx={{mt:2 , color: "whitesmoke"}}/>

@@ -7,8 +7,21 @@ import { prefixer } from "stylis"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 
 //NOTE create custom theme
-const theme = createTheme({
+const LightTheme = createTheme({
     direction : "rtl",
+    palette:{
+      mode:"light"
+    },
+    typography : {
+      fontFamily : 'vazir'
+    }
+  })
+
+  const DarkTheme = createTheme({
+    direction : "rtl",
+    palette:{
+      mode:"dark"
+    },
     typography : {
       fontFamily : 'vazir'
     }
@@ -21,7 +34,9 @@ const cacheRTL = createcache({
   })
 
 
-const MainLayouts = ({ children }) => {
+const MainLayouts = ({ children,mode }) => {
+
+  const theme = mode === "dark" ? DarkTheme : LightTheme; 
     return (
         <CacheProvider value={cacheRTL}>
         <ThemeProvider theme={theme}>

@@ -2,7 +2,7 @@ import { Card } from '@mui/material';
 import { devSkills } from '../../constants/Skills';
 
 import Skill from '../Skill';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 
 const About = () => {
 
@@ -17,28 +17,28 @@ const About = () => {
         const timer = setInterval(()=>{
 
             setJavascript(oldprogres => {
-                const diff = math.random() * 10;
-                return math.min(oldprogres + diff, 82)
+                const diff = Math.random() * 10;
+                return Math.min(oldprogres + diff, 82)
             })
             setHtml(oldprogres => {
-                const diff = math.random() * 10;
-                return math.min(oldprogres + diff, 95)
+                const diff = Math.random() * 10;
+                return Math.min(oldprogres + diff, 95)
             })
             setCss(oldprogres => {
-                const diff = math.random() * 10;
-                return math.min(oldprogres + diff, 90)
+                const diff = Math.random() * 10;
+                return Math.min(oldprogres + diff, 90)
             })
             setNode(oldprogres => {
-                const diff = math.random() * 10;
-                return math.min(oldprogres + diff, 85)
+                const diff = Math.random() * 10;
+                return Math.min(oldprogres + diff, 85)
             })
             setReact(oldprogres => {
-                const diff = math.random() * 10;
-                return math.min(oldprogres + diff, 83)
+                const diff = Math.random() * 10;
+                return Math.min(oldprogres + diff, 83)
             })
             setGit(oldprogres => {
-                const diff = math.random() * 10;
-                return math.min(oldprogres + diff, 80)
+                const diff = Math.random() * 10;
+                return Math.min(oldprogres + diff, 80)
             })
             return () => {
                 clearTimeout(timer)
