@@ -6,7 +6,7 @@ import './App.css';
 import Sidebar from './components/UI/sidebar';
 import PagesContainer from './components/UI/pagesContainer';
 import Page from './components/Tabs/Page';
-import { Typography } from '@mui/material';
+import { Typography,useMediaQuery } from '@mui/material';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 
@@ -18,9 +18,10 @@ function App() {
   }
 
   const [mode, setmode] = useState()
+  const perferDarkTheme = useMediaQuery('(prefers-color-scheme: dark)')
 
   useEffect(()  => {
-    setmode("light")
+    setmode(perferDarkTheme ? "dark" : "light")
   },[])
 
   const handleThemeChange = () => {

@@ -1,4 +1,4 @@
-import {Tabs, Tab  } from "@mui/material"
+import {Tabs, Tab, useTheme  } from "@mui/material"
 import { 
     HomeRounded, 
     Face2Rounded,
@@ -16,6 +16,7 @@ const SidebarTab = ({value , handleChange, handleDrawer}) =>{
             "aria-controlers" : `tabpanel-${index}`
         }
     }
+    const Theme = useTheme()
 
     return(
 
@@ -25,11 +26,12 @@ const SidebarTab = ({value , handleChange, handleDrawer}) =>{
         scrollButtons="auto"
         allowScrollButtonsMobile
         value={value}
+        textColor={Theme.palette.mode === "dark" ? "secondary" : "primary"}
         onChange={handleChange}
         >
             <Tab label="صفحه اصلی"
              icon={<HomeRounded />} 
-             sx={{color:"whitesmoke"}} 
+             sx={{color:"text.primary"}} 
              onClick={handleDrawer}
              iconPosition="start"
               {...tabProps(0)}
@@ -37,7 +39,7 @@ const SidebarTab = ({value , handleChange, handleDrawer}) =>{
 
             <Tab label="درباره من " 
             icon={<Face2Rounded />} 
-            sx={{color:"whitesmoke"}} 
+            sx={{color:"text.primar"}} 
             onClick={handleDrawer}
             iconPosition="start" 
             {...tabProps(1)} 
@@ -45,7 +47,7 @@ const SidebarTab = ({value , handleChange, handleDrawer}) =>{
 
             <Tab label="رزومه من " 
             icon={<TextSnippetRounded />}
-             sx={{color:"whitesmoke"}} 
+             sx={{color:"text.primar"}} 
              onClick={handleDrawer}
              iconPosition="start" 
              {...tabProps(2)} 
@@ -53,7 +55,7 @@ const SidebarTab = ({value , handleChange, handleDrawer}) =>{
 
             <Tab label=" نمونه کار ها " 
             icon={<TerminalRounded />} 
-            sx={{color:"whitesmoke"}}
+            sx={{color:"text.primar"}}
             onClick={handleDrawer}
             iconPosition="start" 
             {...tabProps(3)} 
@@ -61,7 +63,7 @@ const SidebarTab = ({value , handleChange, handleDrawer}) =>{
 
             <Tab label="   ارتباط با من " 
             icon={<ConnectWithoutContactRounded />} 
-            sx={{color:"whitesmoke"}}
+            sx={{color:"text.primar"}}
             onClick={handleDrawer}
             iconPosition="start" 
             {...tabProps(4)} 
